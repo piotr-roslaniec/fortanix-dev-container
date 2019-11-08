@@ -1,0 +1,11 @@
+[package]
+name = "fortanix-example"
+version = "0.1.0"
+authors = ["Piotr Roslaniec <p.roslaniec@gmail.com>"]
+edition = "2018"
+
+[build]
+target = "x86_64-fortanix-unknown-sgx"
+
+[dependencies]
+sgx-isa = { version = "0.2", features = ["sgxstd"] }

@@ -28,7 +28,7 @@
   // "appPort": [],
 
   // Uncomment the next line to run commands after the container is created.
-  "postCreateCommand": "bash /entrypoint.sh",
+  // "postCreateCommand": "",
 
   // Add the IDs of extensions you want installed when the container is created in the array below.
   "extensions": ["rust-lang.rust", "bungcip.better-toml"]

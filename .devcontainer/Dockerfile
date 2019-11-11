@@ -73,5 +73,7 @@ RUN sudo apt-get autoremove -y && \
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# Run AESM service in the background
+RUN printf '\nsudo LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/intel/libsgx-enclave-common/aesm/ /opt/intel/libsgx-enclave-common/aesm/aesm_service &\n' >> /home/${USERNAME}/.bashrc
+
+CMD ["/bin/bash"]

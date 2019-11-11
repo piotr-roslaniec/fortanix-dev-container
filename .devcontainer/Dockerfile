@@ -49,14 +49,13 @@ RUN curl -sSf https://sh.rustup.rs | sh -s -- -y
 
 ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
 
-RUN rustup update && \
-    rustup component add rls rust-analysis rust-src rustfmt clippy
-
 # Install Fortanix EDP
 
 # Install Rust
-RUN rustup default nightly && \
-    rustup target add x86_64-fortanix-unknown-sgx --toolchain nightly
+RUN rustup update && \
+    rustup default nightly && \
+    rustup target add x86_64-fortanix-unknown-sgx --toolchain nightly && \
+    rustup component add rls rust-analysis rust-src rustfmt clippy
 
 # Install Fortanix EDP utilities
 RUN sudo apt-get -y install pkg-config libssl-dev protobuf-compiler && \
